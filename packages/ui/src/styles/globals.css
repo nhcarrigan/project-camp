@@ -1,0 +1,6 @@
+@import "@freecodecamp/ui/dist/base.css";
+@import "tailwindcss";
+
+:root {
+  --font-sans: Lato, sans-serif;
+}
