@@ -9,8 +9,8 @@
     "./react-internal": "./react-internal.js"
   },
   "devDependencies": {
-    "@babel/core": "8.0.1",
-    "@babel/eslint-parser": "8.0.1",
+    "@babel/core": "8.0.6",
+    "@babel/eslint-parser": "8.0.6",
     "@babel/preset-typescript": "8.0.1",
     "@eslint/js": "10.0.1",
     "@next/eslint-plugin-next": "16.3.4",
