@@ -22,7 +22,7 @@
     "@repo/typescript-config": "workspace:*",
     "@types/node": "26.4.1",
     "@types/pg": "^8.23.1",
-    "drizzle-kit": "1.0.0-rc.4",
+    "drizzle-kit": "1.0.0-rc.5-ab785fc",
     "tsx": "^4.23.15"
   }
 }
