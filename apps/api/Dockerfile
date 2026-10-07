@@ -44,6 +44,7 @@ USER fastify
 
 COPY --from=builder --chown=fastify:nodejs /app/apps/api/dist ./apps/api/dist
 COPY --from=builder --chown=fastify:nodejs /app/apps/api/package.json ./apps/api/package.json
+COPY --from=builder --chown=fastify:nodejs /app/apps/api/node_modules ./apps/api/node_modules
 COPY --from=builder --chown=fastify:nodejs /app/packages ./packages
 COPY --from=builder --chown=fastify:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=fastify:nodejs /app/package.json ./package.json
