@@ -37,7 +37,7 @@ export const v1HealthRoutes: FastifyPluginAsync = async (app) => {
 				}
 			}
 
-			const isDegraded = databaseStatus === "error";
+			const isDegraded = databaseStatus !== "healthy";
 
 			return {
 				status: isDegraded ? ("degraded" as const) : ("ok" as const),
