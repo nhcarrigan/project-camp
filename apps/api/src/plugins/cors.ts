@@ -4,7 +4,7 @@ import { env } from "../config/env.js";
 
 export async function registerCors(app: FastifyInstance) {
 	await app.register(cors, {
-		origin: env.CORS_ORIGIN === "*" ? true : env.CORS_ORIGIN.split(","),
-		credentials: true,
+		origin: env.CORS_ORIGIN === "*" ? "*" : env.CORS_ORIGIN.split(","),
+		credentials: env.CORS_ORIGIN !== "*",
 	});
 }
