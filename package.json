@@ -9,6 +9,8 @@
     "check-types": "turbo run check-types",
     "db:up": "docker compose up --wait --wait-timeout 60 postgres",
     "db:down": "docker compose down postgres",
+    "storybook": "turbo run storybook",
+    "build-storybook": "turbo run build-storybook",
     "db:generate": "turbo run db:generate",
     "db:migrate": "turbo run db:migrate",
     "db:push": "turbo run db:push",
