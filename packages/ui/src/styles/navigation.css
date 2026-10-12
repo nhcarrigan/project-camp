@@ -1,0 +1,81 @@
+:root {
+  --camp-navy: var(--gray90);
+  --camp-light: var(--gray05);
+  --camp-search: var(--gray75);
+  --camp-muted: var(--gray15);
+  --camp-focus: var(--blue50);
+}
+
+@theme inline {
+  --color-navy: var(--camp-navy);
+  --color-light: var(--camp-light);
+  --color-search: var(--camp-search);
+  --color-muted: var(--camp-muted);
+  --color-focus: var(--camp-focus);
+  --font-sans: Lato, Arial, Helvetica, sans-serif;
+}
+
+@theme {
+  --breakpoint-compact: 37.5625rem;
+}
+
+@layer components {
+  .camp-ui {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .camp-ui,
+  .camp-ui *,
+  .camp-ui *::before,
+  .camp-ui *::after {
+    box-sizing: border-box;
+  }
+
+  .camp-ui:focus-visible,
+  .camp-ui :focus-visible {
+    outline: 3px solid var(--camp-focus);
+    outline-offset: -3px;
+  }
+}
+
+@theme {
+  --breakpoint-desktop: 61.25rem;
+}
+
+/* One search field lives inside the menu disclosure, including on mobile. */
+.camp-header-search {
+  display: none;
+}
+.camp-header .camp-header-search {
+  display: block;
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-start: 6px;
+  inline-size: calc((100% - 260px - 6rem) / 2);
+}
+@media (width < 61.25rem) {
+  .camp-header .camp-header-search {
+    display: none;
+    inset-inline-start: 0;
+    inset-block-start: 100%;
+    inline-size: 100%;
+    padding: 6px 1rem;
+    background: var(--camp-navy);
+  }
+  .camp-header .camp-navigation[data-open="true"] > .camp-header-search {
+    display: block;
+  }
+}
+
+@media (width < 37.5625rem) {
+  .camp-header-controls > .camp-disclosure > button,
+  .camp-header-controls > a {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+  }
+}

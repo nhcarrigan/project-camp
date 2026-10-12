@@ -1,5 +1,9 @@
-@import "@freecodecamp/ui/dist/base.css";
+@layer theme, base, components, utilities;
+/* Keep the upstream CSS below application Tailwind utilities. */
+@import "@freecodecamp/ui/dist/base.css" layer(base);
 @import "tailwindcss";
+@import "./navigation.css";
+@source "../../stories";
 
 :root {
   --font-sans: Lato, sans-serif;

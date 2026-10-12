@@ -4,6 +4,6 @@
     "outDir": "dist",
     "strictNullChecks": true
   },
-  "include": ["src"],
+  "include": ["src", "stories", ".storybook"],
   "exclude": ["node_modules", "dist"]
 }

@@ -46,3 +46,18 @@ export * from "./components/alert";
 export * from "./components/form";
 export * from "./components/tabs";
 export * from "./lib/utils";
+
+export {
+  NavigationMenu,
+  type NavigationItem,
+  type NavigationMenuProps,
+} from "./navigation-menu";
+export {
+  LanguageSwitcher,
+  type LanguageOption,
+  type LanguageSwitcherProps,
+} from "./language-switcher";
+export { SearchInput, type SearchInputProps } from "./search-input";
+export { UserMenu, type HeaderUser, type UserMenuProps } from "./user-menu";
+export { Logo } from "./logo";
+export { Header, type HeaderProps as SiteHeaderProps } from "./header";
