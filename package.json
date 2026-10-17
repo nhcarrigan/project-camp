@@ -17,11 +17,11 @@
     "db:studio": "turbo run db:studio"
   },
   "devDependencies": {
-    "prettier": "3.9.9",
+    "prettier": "3.9.10",
     "turbo": "^2.11.5",
     "typescript": "7.0.2"
   },
-  "packageManager": "pnpm@12.9.1",
+  "packageManager": "pnpm@12.14.0",
   "engines": {
     "node": ">=24"
   }
