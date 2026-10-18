@@ -1,5 +1,24 @@
 # @repo/db
 
-The `@repo/db` package is a database utility library designed to simplify database interactions within the project. It provides typescript code that can be used by consuming apps to interact with the database.
+The `@repo/db` package is a database utility library designed to simplify database interactions within the project. It provides type-safe schemas, Drizzle ORM client initialization, migrations, and TypeScript models for consuming applications and background workers.
 
-This isn't part of the `api` app, as database interactions will occur outside of the `api` for specific workflows, such as data migrations, batch processing, or other background tasks that are not part of the main `api` stack.
+## CLI Scripts
+
+All commands can be run from the repository root using the `--filter` flag, or directly inside `packages/db`:
+
+```bash
+# Generate database migrations
+pnpm --filter @repo/db db:generate
+
+# Apply database migrations
+pnpm --filter @repo/db db:migrate
+
+# Push schema changes directly to the database
+pnpm --filter @repo/db db:push
+
+# Open Drizzle Studio visual database browser
+pnpm --filter @repo/db db:studio
+
+# Perform TypeScript type-checking
+pnpm --filter @repo/db check-types
+```
