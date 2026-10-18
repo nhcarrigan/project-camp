@@ -11,6 +11,10 @@ This block is written and re-added by `turbo` before repository-scoped commands 
 
 # Project Camp Agent Guidelines
 
+## General Guidelines
+
+- Never use emojis unless explicitly asked.
+
 ## Nested Workspace Guidance
 
 When working within specific applications or packages (such as `packages/common/` or any workspace under `apps/` or `packages/`), always check for and adhere to the guidance in their respective nested `AGENTS.md` files (e.g., `packages/common/AGENTS.md`).
