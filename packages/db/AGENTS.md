@@ -20,6 +20,7 @@ When modifying or expanding the `@repo/db` package, always adhere to the followi
 - Whenever updating or adding tables, columns, constraints, or enums, run `pnpm --filter @repo/db db:generate` to generate the migration file under `.drizzle/`.
 - Verify there is zero unplanned schema drift by executing `pnpm --filter @repo/db exec drizzle-kit generate --explain`.
 - Do not manually edit generated migration SQL files unless adding custom data migration logic.
+- **Automated Reviews & Copilot**: Migration files under `.drizzle/` (SQL files and snapshot metadata) are auto-generated. AI reviewers and Copilot should ignore files in `.drizzle/` and instead evaluate the source schema definitions in `src/schemas/` and `src/constants/enums.ts`.
 
 ## 4. Verification & Quality Assurance
 

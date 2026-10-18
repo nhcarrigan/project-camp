@@ -15,6 +15,10 @@ This block is written and re-added by `turbo` before repository-scoped commands 
 
 - Never use emojis unless explicitly asked.
 
+## Automated Code Review Guidance
+
+- **Auto-generated Files**: Do not review, critique, or flag changes inside auto-generated directories such as `packages/db/.drizzle/` or generated lockfiles. Automated code reviews and AI agents must focus on hand-written source code and schema declarations instead.
+
 ## Nested Workspace Guidance
 
 When working within specific applications or packages (such as `packages/common/` or any workspace under `apps/` or `packages/`), always check for and adhere to the guidance in their respective nested `AGENTS.md` files (e.g., `packages/common/AGENTS.md`).
