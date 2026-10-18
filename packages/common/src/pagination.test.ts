@@ -2,9 +2,10 @@ import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import {
   calculatePagination,
-  getPaginationOffset,
   createPaginatedResult,
-} from "../pagination.js";
+  getPaginationOffset,
+  paginationQuerySchema,
+} from "./pagination.js";
 
 describe("Pagination", () => {
   it("calculates pagination metadata correctly", () => {
@@ -45,5 +46,18 @@ describe("Pagination", () => {
     assert.equal(result.total, 10);
     assert.equal(result.totalPages, 5);
     assert.equal(result.hasNextPage, true);
+  });
+
+  it("validates pagination query schema with coercion and defaults", () => {
+    const parsed = paginationQuerySchema.parse({
+      page: "2",
+      limit: "50",
+    });
+    assert.equal(parsed.page, 2);
+    assert.equal(parsed.limit, 50);
+
+    const defaults = paginationQuerySchema.parse({});
+    assert.equal(defaults.page, 1);
+    assert.equal(defaults.limit, 20);
   });
 });

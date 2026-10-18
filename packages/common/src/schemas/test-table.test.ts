@@ -1,28 +1,13 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import {
-  paginationQuerySchema,
-  testTableSchema,
-  insertTestTableSchema,
-} from "../schemas/index.js";
+import { insertTestTableSchema, testTableSchema } from "./test-table.js";
 
-describe("Schemas", () => {
-  it("validates pagination query schema with coercion and defaults", () => {
-    const parsed = paginationQuerySchema.parse({
-      page: "2",
-      limit: "50",
-    });
-    assert.equal(parsed.page, 2);
-    assert.equal(parsed.limit, 50);
+const VALID_UUID = "123e4567-e89b-12d3-a456-426614174000";
 
-    const defaults = paginationQuerySchema.parse({});
-    assert.equal(defaults.page, 1);
-    assert.equal(defaults.limit, 20);
-  });
-
+describe("Legacy Test Table Schema", () => {
   it("validates testTableSchema matching db schema", () => {
     const valid = {
-      id: "123e4567-e89b-12d3-a456-426614174000",
+      id: VALID_UUID,
       name: "John",
       lastName: "Doe",
       createdAt: new Date().toISOString(),

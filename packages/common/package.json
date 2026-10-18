@@ -5,13 +5,14 @@
   "private": true,
   "exports": {
     ".": "./src/index.ts",
+    "./enums": "./src/enums/index.ts",
     "./pagination": "./src/pagination.ts",
     "./schemas": "./src/schemas/index.ts"
   },
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
-    "test": "tsx --test \"src/__tests__/**/*.test.ts\""
+    "test": "tsx --test \"src/**/*.test.ts\""
   },
   "dependencies": {
     "zod": "^4.4.3"
