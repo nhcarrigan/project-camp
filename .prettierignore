@@ -1,0 +1,12 @@
+# Package manager lockfiles
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Build artifacts & caches
+.next/
+dist/
+build/
+storybook-static/
+.turbo/
+coverage/
