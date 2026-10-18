@@ -4,10 +4,9 @@ import {
   calculatePagination,
   createPaginatedResult,
   getPaginationOffset,
-  paginationQuerySchema,
 } from "./pagination.js";
 
-describe("Pagination", () => {
+describe("Pagination Logic", () => {
   it("calculates pagination metadata correctly", () => {
     const meta = calculatePagination({ totalItems: 95, page: 1, pageSize: 20 });
     assert.deepEqual(meta, {
@@ -46,18 +45,5 @@ describe("Pagination", () => {
     assert.equal(result.total, 10);
     assert.equal(result.totalPages, 5);
     assert.equal(result.hasNextPage, true);
-  });
-
-  it("validates pagination query schema with coercion and defaults", () => {
-    const parsed = paginationQuerySchema.parse({
-      page: "2",
-      limit: "50",
-    });
-    assert.equal(parsed.page, 2);
-    assert.equal(parsed.limit, 50);
-
-    const defaults = paginationQuerySchema.parse({});
-    assert.equal(defaults.page, 1);
-    assert.equal(defaults.limit, 20);
   });
 });

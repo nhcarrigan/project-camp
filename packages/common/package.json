@@ -6,7 +6,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./enums": "./src/enums/index.ts",
-    "./pagination": "./src/pagination.ts",
+    "./pagination": "./src/pagination/index.ts",
     "./schemas": "./src/schemas/index.ts"
   },
   "scripts": {
