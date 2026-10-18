@@ -12,7 +12,8 @@
     "db:generate": "pnpm exec drizzle-kit generate",
     "db:migrate": "pnpm exec drizzle-kit migrate",
     "db:push": "pnpm exec drizzle-kit push",
-    "db:studio": "pnpm exec drizzle-kit studio"
+    "db:studio": "pnpm exec drizzle-kit studio",
+    "db:verify": "tsx scripts/verify-migrations.ts"
   },
   "dependencies": {
     "dotenv": "^18.0.5",
