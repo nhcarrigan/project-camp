@@ -26,6 +26,7 @@ export async function registerSwagger(app: FastifyInstance) {
 			],
 			tags: [
 				{ name: "Health", description: "Health check and status endpoints" },
+				{ name: "Projects", description: "Project endpoints" },
 			],
 		},
 		transform: jsonSchemaTransform,
