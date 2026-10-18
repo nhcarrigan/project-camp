@@ -1,4 +1,4 @@
-# `web`
+# web
 
 Next.js frontend web application for Project Camp.
 

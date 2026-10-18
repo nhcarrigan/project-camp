@@ -1,4 +1,4 @@
-# `api`
+# api
 
 Fastify backend REST API service for Project Camp.
 
