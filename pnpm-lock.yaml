@@ -342,6 +342,9 @@ importers:
       eslint:
         specifier: 10.12.0
         version: 10.12.0(jiti@2.7.0)(supports-color@7.2.0)
+      tsx:
+        specifier: ^4.23.15
+        version: 4.23.15
       typescript:
         specifier: 7.0.2
         version: 7.0.2
