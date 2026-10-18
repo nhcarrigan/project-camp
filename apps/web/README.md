@@ -4,7 +4,7 @@ Next.js frontend web application for Project Camp.
 
 ## Overview
 
-The `web` application is the primary user interface for Project Camp. Built with Next.js App Router, React 19, and Tailwind CSS v4, it integrates directly with the [`@repo/ui`](file:///home/brad/Projects/project-camp/packages/ui) design system package (built on `@freecodecamp/ui`) to deliver a modern, accessible experience.
+The `web` application is the primary user interface for Project Camp. Built with Next.js App Router, React 19, and Tailwind CSS v4, it integrates directly with the [`@repo/ui`](../../packages/ui/README.md) design system package (built on `@freecodecamp/ui`) to deliver a modern, accessible experience.
 
 ## Development & Scripts
 
