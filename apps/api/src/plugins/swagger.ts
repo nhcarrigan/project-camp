@@ -40,6 +40,10 @@ export async function registerSwagger(app: FastifyInstance) {
       ],
       tags: [
         { name: "Health", description: "Health check and status endpoints" },
+        {
+          name: "Projects",
+          description: "Project management and proposal endpoints",
+        },
       ],
     },
     transform: jsonSchemaTransform,
