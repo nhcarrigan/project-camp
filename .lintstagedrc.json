@@ -1,0 +1,5 @@
+{
+  "*.{js,jsx,ts,tsx}": ["prettier --write"],
+  "*.{json,md,yml,yaml}": ["prettier --write"],
+  "packages/db/src/**/*.{ts,tsx}": ["pnpm db:verify"]
+}

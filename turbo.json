@@ -36,6 +36,9 @@
     },
     "db:studio": {
       "cache": false
+    },
+    "db:verify": {
+      "cache": false
     }
   }
 }
