@@ -15,7 +15,7 @@
     "./tabs": "./src/components/tabs.tsx",
     "./lib/*": "./src/lib/*.ts",
     "./styles.css": "./src/styles/globals.css",
-    "./*": "./src/*.tsx"
+    "./*": "./src/components/*.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
