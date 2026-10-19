@@ -2,7 +2,7 @@ import type {
   PaginatedResult,
   PaginationMeta,
   PaginationOptions,
-} from "./types.js";
+} from "./types";
 
 /**
  * Isomorphic pagination calculation that computes pagination navigation state

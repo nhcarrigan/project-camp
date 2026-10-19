@@ -1,10 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import {
-  insertUserSchema,
-  updateUserProfileSchema,
-  userSchema,
-} from "./users.js";
+import { insertUserSchema, updateUserProfileSchema, userSchema } from "./users";
 
 const VALID_UUID = "123e4567-e89b-12d3-a456-426614174000";
 

@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { milestoneStatusSchema } from "./milestone-status.js";
+import { milestoneStatusSchema } from "./milestone-status";
 
 describe("MilestoneStatus Enum", () => {
   it("validates allowed milestone statuses", () => {

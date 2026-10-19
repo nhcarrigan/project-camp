@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { milestoneStatusSchema } from "../enums/index.js";
+import { milestoneStatusSchema } from "../enums/index";
 
 /**
  * Zod validation schema representing a time-boxed milestone within a project.

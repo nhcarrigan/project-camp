@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { skillCategorySchema } from "../enums/index.js";
+import { skillCategorySchema } from "../enums/index";
 
 /**
  * Zod validation schema representing a skill or technology taxonomy entry.

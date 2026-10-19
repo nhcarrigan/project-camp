@@ -2,7 +2,7 @@ import { z } from "zod";
 import {
   projectMemberRoleSchema,
   projectMemberStatusSchema,
-} from "../enums/index.js";
+} from "../enums/index";
 
 /**
  * Zod validation schema representing a team member or volunteer associated with a project.

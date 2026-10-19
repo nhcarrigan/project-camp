@@ -1,9 +1,6 @@
 import { z } from "zod";
-import {
-  projectDifficultySchema,
-  projectStatusSchema,
-} from "../enums/index.js";
-import { paginationQuerySchema } from "../pagination/index.js";
+import { projectDifficultySchema, projectStatusSchema } from "../enums/index";
+import { paginationQuerySchema } from "../pagination/index";
 
 /**
  * Zod validation schema representing a persisted project or proposal.

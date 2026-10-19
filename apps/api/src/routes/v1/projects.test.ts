@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it, mock } from "node:test";
 import { db } from "@repo/db";
-import { buildApp } from "../../app.js";
+import { buildApp } from "../../app";
 
 process.env.NODE_ENV = "test";
 

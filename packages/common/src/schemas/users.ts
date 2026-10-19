@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { userRoleSchema } from "../enums/index.js";
+import { userRoleSchema } from "../enums/index";
 
 /**
  * Zod validation schema representing a full user account and developer profile.

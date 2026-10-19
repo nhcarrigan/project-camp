@@ -1,6 +1,6 @@
 import cors from "@fastify/cors";
 import type { FastifyInstance } from "fastify";
-import { env } from "../config/env.js";
+import { env } from "../config/env";
 
 /**
  * Configures and registers Cross-Origin Resource Sharing (CORS) middleware on the Fastify application.

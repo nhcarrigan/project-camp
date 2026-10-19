@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { skillCategorySchema } from "./skill-category.js";
+import { skillCategorySchema } from "./skill-category";
 
 describe("SkillCategory Enum", () => {
   it("validates allowed skill categories", () => {

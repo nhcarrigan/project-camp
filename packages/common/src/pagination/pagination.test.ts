@@ -4,7 +4,7 @@ import {
   calculatePagination,
   createPaginatedResult,
   getPaginationOffset,
-} from "./pagination.js";
+} from "./pagination";
 
 describe("Pagination Logic", () => {
   it("calculates pagination metadata correctly", () => {

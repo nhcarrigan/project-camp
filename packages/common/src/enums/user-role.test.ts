@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { userRoleSchema } from "./user-role.js";
+import { userRoleSchema } from "./user-role";
 
 describe("UserRole Enum", () => {
   it("validates allowed user roles", () => {

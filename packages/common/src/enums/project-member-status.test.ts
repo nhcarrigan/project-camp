@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { projectMemberStatusSchema } from "./project-member-status.js";
+import { projectMemberStatusSchema } from "./project-member-status";
 
 describe("ProjectMemberStatus Enum", () => {
   it("validates allowed project member statuses", () => {

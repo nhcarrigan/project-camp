@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { projectDifficultySchema } from "./project-difficulty.js";
+import { projectDifficultySchema } from "./project-difficulty";
 
 describe("ProjectDifficulty Enum", () => {
   it("validates allowed project difficulties", () => {

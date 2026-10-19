@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { voteTypeSchema } from "../enums/index.js";
+import { voteTypeSchema } from "../enums/index";
 
 /**
  * Zod validation schema representing a community vote cast on a project.

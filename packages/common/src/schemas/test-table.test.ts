@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { insertTestTableSchema, testTableSchema } from "./test-table.js";
+import { insertTestTableSchema, testTableSchema } from "./test-table";
 
 const VALID_UUID = "123e4567-e89b-12d3-a456-426614174000";
 

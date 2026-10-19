@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { projectMemberRoleSchema } from "./project-member-role.js";
+import { projectMemberRoleSchema } from "./project-member-role";
 
 describe("ProjectMemberRole Enum", () => {
   it("validates allowed project member roles", () => {

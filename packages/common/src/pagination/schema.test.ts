@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { paginationQuerySchema } from "./schema.js";
+import { paginationQuerySchema } from "./schema";
 
 describe("Pagination Schema", () => {
   it("validates pagination query schema with coercion and defaults", () => {

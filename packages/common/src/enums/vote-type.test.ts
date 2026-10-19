@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { voteTypeSchema } from "./vote-type.js";
+import { voteTypeSchema } from "./vote-type";
 
 describe("VoteType Enum", () => {
   it("validates upvote and downvote", () => {

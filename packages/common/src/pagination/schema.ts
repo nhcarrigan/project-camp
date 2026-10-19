@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE } from "./constants.js";
+import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE } from "./constants";
 
 /**
  * Zod validation schema for incoming HTTP list request pagination parameters,
