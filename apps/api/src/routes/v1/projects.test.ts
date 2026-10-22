@@ -12,7 +12,6 @@ const FAKE_PROJECT = {
   description:
     "An open source platform connecting volunteer developers with projects.",
   status: "draft" as const,
-  difficulty: "intermediate" as const,
   repositoryUrl: "https://github.com/freeCodeCamp/project-camp",
   ownerId: "123e4567-e89b-12d3-a456-426614174001",
   upvotesCount: 42,
@@ -39,7 +38,6 @@ describe("v1ProjectRoutes", () => {
     assert.equal(body[0].title, FAKE_PROJECT.title);
     assert.equal(body[0].slug, FAKE_PROJECT.slug);
     assert.equal(body[0].status, FAKE_PROJECT.status);
-    assert.equal(body[0].difficulty, FAKE_PROJECT.difficulty);
     assert.equal(body[0].upvotesCount, FAKE_PROJECT.upvotesCount);
   });
 

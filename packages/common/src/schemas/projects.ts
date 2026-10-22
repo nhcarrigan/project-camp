@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { projectDifficultySchema, projectStatusSchema } from "../enums/index";
+import { projectStatusSchema } from "../enums/index";
 import { paginationQuerySchema } from "../pagination/index";
 
 /**
@@ -11,7 +11,6 @@ export const projectSchema = z.object({
   slug: z.string().min(3, "Slug must be at least 3 characters").max(100),
   description: z.string().min(10, "Description must be at least 10 characters"),
   status: projectStatusSchema.default("draft"),
-  difficulty: projectDifficultySchema.default("intermediate"),
   repositoryUrl: z.string().url("Must be a valid URL").nullable().optional(),
   ownerId: z.string().uuid(),
   upvotesCount: z.number().int().nonnegative().default(0),
@@ -48,7 +47,6 @@ export const createProjectSchema = projectSchema
   .pick({
     title: true,
     description: true,
-    difficulty: true,
     repositoryUrl: true,
   })
   .extend({
@@ -70,7 +68,6 @@ export const updateProjectSchema = projectSchema
     title: true,
     description: true,
     status: true,
-    difficulty: true,
     repositoryUrl: true,
   })
   .partial();
@@ -85,7 +82,6 @@ export type UpdateProject = z.infer<typeof updateProjectSchema>;
  */
 export const projectFilterQuerySchema = paginationQuerySchema.extend({
   status: projectStatusSchema.optional(),
-  difficulty: projectDifficultySchema.optional(),
   search: z.string().optional(),
   skill: z.string().optional(),
 });
