@@ -1,9 +1,9 @@
 import sensible from "@fastify/sensible";
 import Fastify from "fastify";
-import { registerCors } from "./plugins/cors.js";
-import { registerSwagger } from "./plugins/swagger.js";
-import { healthRoutes } from "./routes/health.js";
-import { v1Routes } from "./routes/v1/index.js";
+import { registerCors } from "./plugins/cors";
+import { registerSwagger } from "./plugins/swagger";
+import { healthRoutes } from "./routes/health";
+import { v1Routes } from "./routes/v1/index";
 
 export async function buildApp() {
   const app = Fastify({

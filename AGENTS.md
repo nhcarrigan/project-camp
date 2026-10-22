@@ -19,6 +19,10 @@ This block is written and re-added by `turbo` before repository-scoped commands 
 
 - **Auto-generated Files**: Do not review, critique, or flag changes inside auto-generated directories such as `packages/db/.drizzle/` or generated lockfiles. Automated code reviews and AI agents must focus on hand-written source code and schema declarations instead.
 
+## Testing Guidelines
+
+- Always co-locate tests alongside the source code they test (e.g., `<filename>.test.ts` in the same directory as `<filename>.ts`). Never create or use centralized `__tests__` directories.
+
 ## Nested Workspace Guidance
 
 When working within specific applications or packages (such as `packages/common/` or any workspace under `apps/` or `packages/`), always check for and adhere to the guidance in their respective nested `AGENTS.md` files (e.g., `packages/common/AGENTS.md`).
