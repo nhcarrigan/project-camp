@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { describe, it, mock } from "node:test";
+import { afterEach, describe, it, mock } from "node:test";
 import { db } from "@repo/db";
 import { buildApp } from "../../app";
 
@@ -21,6 +21,10 @@ const FAKE_PROJECT = {
 };
 
 describe("v1ProjectRoutes", () => {
+  afterEach(() => {
+    mock.restoreAll();
+  });
+
   it("GET /api/v1/projects returns an array of projects matching projectSchema", async () => {
     mock.method(db.query.projects, "findMany", async () => [FAKE_PROJECT]);
 
@@ -41,7 +45,7 @@ describe("v1ProjectRoutes", () => {
     assert.equal(body[0].upvotesCount, FAKE_PROJECT.upvotesCount);
   });
 
-  it("GET /api/v1/projects supports limit and offset query parameters", async () => {
+  it("GET /api/v1/projects supports page and limit query parameters", async () => {
     let capturedOptions: unknown = null;
     mock.method(db.query.projects, "findMany", async (options?: unknown) => {
       capturedOptions = options;
@@ -51,11 +55,11 @@ describe("v1ProjectRoutes", () => {
     const app = await buildApp();
     const response = await app.inject({
       method: "GET",
-      url: "/api/v1/projects?limit=5&offset=10",
+      url: "/api/v1/projects?page=2&limit=5",
     });
 
     assert.equal(response.statusCode, 200);
-    assert.deepEqual(capturedOptions, { limit: 5, offset: 10 });
+    assert.deepEqual(capturedOptions, { limit: 5, offset: 5 });
   });
 
   it("GET /api/v1/projects/:id returns a single project when found", async () => {

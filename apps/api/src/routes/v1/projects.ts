@@ -1,13 +1,12 @@
-import { projectSchema } from "@repo/common";
+import {
+  getPaginationOffset,
+  projectFilterQuerySchema,
+  projectSchema,
+} from "@repo/common";
 import { db } from "@repo/db";
 import type { FastifyPluginAsync } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
-
-const listProjectsQuerySchema = z.object({
-  limit: z.coerce.number().int().min(1).max(100).optional(),
-  offset: z.coerce.number().int().min(0).optional(),
-});
 
 const notFoundResponseSchema = z.object({
   statusCode: z.number(),
@@ -30,14 +29,15 @@ export const v1ProjectRoutes: FastifyPluginAsync = async (app) => {
       schema: {
         description: "Retrieve a list of projects from the database",
         tags: ["Projects"],
-        querystring: listProjectsQuerySchema,
+        querystring: projectFilterQuerySchema,
         response: {
           200: z.array(projectSchema),
         },
       },
     },
     async (request) => {
-      const { limit, offset } = request.query;
+      const { page, limit } = request.query;
+      const offset = getPaginationOffset(page, limit);
 
       const results = await db.query.projects.findMany({
         limit,
