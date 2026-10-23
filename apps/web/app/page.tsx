@@ -24,8 +24,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background-primary text-foreground-primary p-6 sm:p-12 font-sans max-w-5xl mx-auto space-y-10">
-      {/* Header */}
-      <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-foreground-secondary gap-4">
+      {/* Hero Banner */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-foreground-secondary gap-4">
         <div className="flex items-center gap-3">
           <Image
             src="/vercel.svg"
@@ -59,16 +59,18 @@ export default function Home() {
             Turborepo Docs
           </Button>
         </div>
-      </header>
+      </div>
 
       {/* Intro Callout */}
       <Callout label="Component Architecture" variant="note">
         This app uses components exported directly from{" "}
         <code className="px-1 py-0.5 bg-background-tertiary">@repo/ui</code>,
         powered by the official{" "}
-        <code className="px-1 py-0.5 bg-background-tertiary">@freecodecamp/ui</code>{" "}
-        library. The package serves as our design system foundation and extension
-        layer.
+        <code className="px-1 py-0.5 bg-background-tertiary">
+          @freecodecamp/ui
+        </code>{" "}
+        library. The package serves as our design system foundation and
+        extension layer.
       </Callout>
 
       {/* Button Section */}
@@ -110,16 +112,20 @@ export default function Home() {
         <h2 className="text-xl font-bold">2. Alerts & Notifications</h2>
         <div className="space-y-3">
           <Alert variant="info">
-            <strong>Info:</strong> Check out the latest curriculum updates in your dashboard.
+            <strong>Info:</strong> Check out the latest curriculum updates in
+            your dashboard.
           </Alert>
           <Alert variant="success">
-            <strong>Success:</strong> Your solution passed all automated unit tests!
+            <strong>Success:</strong> Your solution passed all automated unit
+            tests!
           </Alert>
           <Alert variant="warning">
-            <strong>Warning:</strong> Please make sure to save your work before switching challenges.
+            <strong>Warning:</strong> Please make sure to save your work before
+            switching challenges.
           </Alert>
           <Alert variant="danger">
-            <strong>Danger:</strong> Syntax error detected on line 42 of your script.
+            <strong>Danger:</strong> Syntax error detected on line 42 of your
+            script.
           </Alert>
         </div>
       </section>
@@ -130,14 +136,17 @@ export default function Home() {
         <Panel variant="info">
           <div className="p-5 space-y-4">
             <p>
-              Accessible dialogs built with Headless UI primitives, keyboard trapping,
-              and backdrop dismiss.
+              Accessible dialogs built with Headless UI primitives, keyboard
+              trapping, and backdrop dismiss.
             </p>
             <div className="flex gap-3">
               <Button variant="primary" onClick={() => setIsModalOpen(true)}>
                 Open Standard Modal
               </Button>
-              <Button variant="danger" onClick={() => setIsDangerModalOpen(true)}>
+              <Button
+                variant="danger"
+                onClick={() => setIsDangerModalOpen(true)}
+              >
                 Open Danger Confirmation
               </Button>
             </div>
@@ -155,7 +164,8 @@ export default function Home() {
               <code>@repo/ui</code>.
             </p>
             <p className="my-2">
-              It traps focus, supports the Escape key, and offers customizable header and footer slots.
+              It traps focus, supports the Escape key, and offers customizable
+              header and footer slots.
             </p>
           </Modal.Body>
           <Modal.Footer>
@@ -220,7 +230,9 @@ export default function Home() {
                 type="text"
                 placeholder="e.g. camperbot"
               />
-              <HelpBlock>Your unique username across freeCodeCamp modules.</HelpBlock>
+              <HelpBlock>
+                Your unique username across freeCodeCamp modules.
+              </HelpBlock>
             </FormGroup>
 
             <FormGroup>
@@ -259,19 +271,25 @@ export default function Home() {
           <TabsContent value="html">
             <div className="p-4 border border-t-0 border-foreground-secondary">
               <h4 className="font-bold mb-1">HTML Structure</h4>
-              <p className="text-sm">Semantic elements defining the content of your web page.</p>
+              <p className="text-sm">
+                Semantic elements defining the content of your web page.
+              </p>
             </div>
           </TabsContent>
           <TabsContent value="css">
             <div className="p-4 border border-t-0 border-foreground-secondary">
               <h4 className="font-bold mb-1">CSS Stylesheet</h4>
-              <p className="text-sm">freeCodeCamp base styles and responsive styling rules.</p>
+              <p className="text-sm">
+                freeCodeCamp base styles and responsive styling rules.
+              </p>
             </div>
           </TabsContent>
           <TabsContent value="js">
             <div className="p-4 border border-t-0 border-foreground-secondary">
               <h4 className="font-bold mb-1">JavaScript Logic</h4>
-              <p className="text-sm">Interactive components and client-side application state.</p>
+              <p className="text-sm">
+                Interactive components and client-side application state.
+              </p>
             </div>
           </TabsContent>
         </Tabs>
