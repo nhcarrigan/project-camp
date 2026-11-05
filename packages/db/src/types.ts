@@ -28,7 +28,6 @@ export type ProjectStatus = (typeof projectStatusEnum.enumValues)[number];
 export type ProjectDifficulty =
   (typeof projectDifficultyEnum.enumValues)[number];
 export type VoteType = (typeof voteTypeEnum.enumValues)[number];
-export type SkillCategory = string;
 export type ProjectMemberRole =
   (typeof projectMemberRoleEnum.enumValues)[number];
 export type ProjectMemberStatus =

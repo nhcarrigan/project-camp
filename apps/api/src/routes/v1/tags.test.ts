@@ -60,7 +60,7 @@ describe("v1TagRoutes", () => {
     });
   });
 
-  it("GET /api/v1/tags passes category, q, and limit query parameters", async () => {
+  it("GET /api/v1/tags normalizes category and passes q and limit query parameters", async () => {
     let capturedOptions: unknown = null;
     mock.method(tagRepository, "findTags", async (options: unknown) => {
       capturedOptions = options;
@@ -70,7 +70,7 @@ describe("v1TagRoutes", () => {
     const app = await buildApp();
     const response = await app.inject({
       method: "GET",
-      url: "/api/v1/tags?category=language&q=type&limit=25",
+      url: "/api/v1/tags?category=Language&q=type&limit=25",
     });
 
     assert.equal(response.statusCode, 200);
@@ -78,6 +78,27 @@ describe("v1TagRoutes", () => {
       category: "language",
       q: "type",
       limit: 25,
+    });
+  });
+
+  it("GET /api/v1/tags treats empty q string as undefined", async () => {
+    let capturedOptions: unknown = null;
+    mock.method(tagRepository, "findTags", async (options: unknown) => {
+      capturedOptions = options;
+      return [FAKE_TAG];
+    });
+
+    const app = await buildApp();
+    const response = await app.inject({
+      method: "GET",
+      url: "/api/v1/tags?q=",
+    });
+
+    assert.equal(response.statusCode, 200);
+    assert.deepEqual(capturedOptions, {
+      category: undefined,
+      q: undefined,
+      limit: 50,
     });
   });
 
@@ -101,13 +122,20 @@ describe("v1TagRoutes", () => {
     assert.equal(response.statusCode, 400);
   });
 
-  it("GET /api/v1/tags returns 400 when q is empty string", async () => {
-    const app = await buildApp();
-    const response = await app.inject({
-      method: "GET",
-      url: "/api/v1/tags?q=",
-    });
+  it("escapes LIKE wildcards in prefix search and uses direct column comparison for category", () => {
+    const { sql, params } = tagRepository
+      .buildFindTagsQuery({
+        category: "Language",
+        q: "100%_ts",
+        limit: 10,
+      })
+      .toSQL();
 
-    assert.equal(response.statusCode, 400);
+    assert.ok(
+      sql.includes('"skills"."category" = $1'),
+      `Expected direct indexed column comparison, got: ${sql}`,
+    );
+    assert.ok(!sql.includes("lower("));
+    assert.deepEqual(params, ["language", "100\\%\\_ts%", "100\\%\\_ts%", 10]);
   });
 });

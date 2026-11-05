@@ -1,4 +1,8 @@
-import { tagsQuerySchema, tagsResponseSchema } from "@repo/common";
+import {
+  tagsQuerySchema,
+  tagsResponseSchema,
+  toPrefixPattern,
+} from "@repo/common";
 import {
   and,
   asc,
@@ -19,26 +23,30 @@ import type { ZodTypeProvider } from "fastify-type-provider-zod";
  */
 export const tagRepository = {
   /**
-   * Query skills and tags with optional category filtering, prefix search, and project counts.
-   *
-   * @param options - Query parameters including category, search prefix q, and limit.
-   * @returns Array of tag items matching criteria.
+   * Builds the Drizzle query for skills and tags with optional category filtering,
+   * prefix search, and project usage counts.
    */
-  async findTags(options: { category?: string; q?: string; limit: number }) {
+  buildFindTagsQuery(options: {
+    category?: string;
+    q?: string;
+    limit: number;
+  }) {
     const { category, q, limit } = options;
     const conditions = [];
 
     if (category) {
-      conditions.push(
-        eq(sql`lower(${skills.category})`, category.toLowerCase()),
-      );
+      conditions.push(eq(skills.category, category.toLowerCase()));
     }
 
     if (q) {
+      const pattern = toPrefixPattern(q);
       conditions.push(
-        or(ilike(skills.name, `${q}%`), ilike(skills.slug, `${q}%`)),
+        or(ilike(skills.name, pattern), ilike(skills.slug, pattern)),
       );
     }
+
+    const projectCount =
+      sql<number>`count(${projectSkills.projectId})::int`.mapWith(Number);
 
     const query = db
       .select({
@@ -46,22 +54,25 @@ export const tagRepository = {
         name: skills.name,
         slug: skills.slug,
         category: skills.category,
-        projectCount:
-          sql<number>`cast(count(${projectSkills.projectId}) as int)`.mapWith(
-            Number,
-          ),
+        projectCount,
       })
       .from(skills)
       .leftJoin(projectSkills, eq(skills.id, projectSkills.skillId));
 
-    const results = await (
-      conditions.length > 0 ? query.where(and(...conditions)) : query
-    )
+    return (conditions.length > 0 ? query.where(and(...conditions)) : query)
       .groupBy(skills.id, skills.name, skills.slug, skills.category)
-      .orderBy(desc(sql`count(${projectSkills.projectId})`), asc(skills.name))
+      .orderBy(desc(projectCount), asc(skills.name))
       .limit(limit);
+  },
 
-    return results;
+  /**
+   * Query skills and tags with optional category filtering, prefix search, and project counts.
+   *
+   * @param options - Query parameters including category, search prefix q, and limit.
+   * @returns Array of tag items matching criteria.
+   */
+  async findTags(options: { category?: string; q?: string; limit: number }) {
+    return tagRepository.buildFindTagsQuery(options);
   },
 };
 

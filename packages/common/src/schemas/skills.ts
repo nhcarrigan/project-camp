@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { skillCategorySchema } from "../enums/index";
+import { searchQueryParamSchema } from "../search/index";
 
 /**
  * Zod validation schema representing a skill or technology taxonomy entry.
@@ -52,7 +53,7 @@ export type TagItem = z.infer<typeof tagItemSchema>;
  */
 export const tagsQuerySchema = z.object({
   category: skillCategorySchema.optional(),
-  q: z.string().min(1).max(100).optional(),
+  q: searchQueryParamSchema,
   limit: z.coerce.number().int().positive().max(100).default(50),
 });
 

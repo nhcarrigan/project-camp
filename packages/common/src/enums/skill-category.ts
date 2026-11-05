@@ -28,8 +28,10 @@ export type StandardSkillCategory = (typeof STANDARD_SKILL_CATEGORIES)[number];
  */
 export const skillCategorySchema = z
   .string()
+  .trim()
   .min(1, "Skill category is required")
-  .max(50);
+  .max(50)
+  .toLowerCase();
 
 /**
  * Skill categorization type.

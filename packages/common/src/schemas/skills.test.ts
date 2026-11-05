@@ -11,12 +11,12 @@ import {
 const VALID_UUID = "123e4567-e89b-12d3-a456-426614174000";
 
 describe("Skills & Tags Schemas", () => {
-  it("validates a complete skill entity", () => {
+  it("validates a complete skill entity and normalizes category to lowercase", () => {
     const valid = {
       id: VALID_UUID,
       name: "TypeScript",
       slug: "typescript",
-      category: "language",
+      category: "  Language  ",
       description: "Typed JavaScript at Any Scale",
       createdAt: new Date().toISOString(),
     };
@@ -64,13 +64,19 @@ describe("Skills & Tags Schemas", () => {
     assert.equal(emptyQuery.q, undefined);
 
     const fullQuery = tagsQuerySchema.parse({
-      category: "tool",
+      category: "  Tool ",
       q: "doc",
       limit: "25",
     });
     assert.equal(fullQuery.category, "tool");
     assert.equal(fullQuery.q, "doc");
     assert.equal(fullQuery.limit, 25);
+
+    // Normalizes empty or whitespace-only search string q to undefined
+    const blankSearch = tagsQuerySchema.parse({
+      q: "   ",
+    });
+    assert.equal(blankSearch.q, undefined);
 
     // Rejects limit over 100
     assert.throws(() =>
@@ -83,13 +89,6 @@ describe("Skills & Tags Schemas", () => {
     assert.throws(() =>
       tagsQuerySchema.parse({
         limit: 0,
-      }),
-    );
-
-    // Rejects empty search string q
-    assert.throws(() =>
-      tagsQuerySchema.parse({
-        q: "",
       }),
     );
   });

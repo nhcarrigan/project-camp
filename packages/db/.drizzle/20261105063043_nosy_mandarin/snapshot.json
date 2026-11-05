@@ -1,7 +1,7 @@
 {
   "version": "8",
   "dialect": "postgres",
-  "id": "aa67efb7-3488-446e-98bd-f5438d0725cc",
+  "id": "c6464ebc-c1df-4d36-92ea-b7596df6d335",
   "prevIds": [
     "4c8d8668-b9d4-4dd6-bfdc-9adb6f4f0924"
   ],
@@ -59,21 +59,6 @@
         "archived"
       ],
       "name": "project_status",
-      "entityType": "enums",
-      "schema": "public"
-    },
-    {
-      "values": [
-        "frontend",
-        "backend",
-        "devops",
-        "database",
-        "mobile",
-        "ai_ml",
-        "design",
-        "other"
-      ],
-      "name": "skill_category",
       "entityType": "enums",
       "schema": "public"
     },
@@ -368,7 +353,7 @@
       "table": "skills"
     },
     {
-      "type": "text",
+      "type": "varchar(50)",
       "typeSchema": null,
       "notNull": true,
       "dimensions": 0,
