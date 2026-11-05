@@ -1,18 +1,37 @@
 import { z } from "zod";
 
 /**
- * Zod validation schema representing categorizations for developer skills and technology stacks.
+ * Suggested standard developer skill and technology taxonomy categories.
  */
-export const skillCategorySchema = z.enum([
+export const STANDARD_SKILL_CATEGORIES = [
+  "language",
+  "framework",
+  "database",
+  "devops",
+  "tool",
   "frontend",
   "backend",
-  "devops",
-  "database",
   "mobile",
   "ai_ml",
   "design",
   "other",
-]);
+] as const;
+
+/**
+ * Type representing standard suggested skill categories.
+ */
+export type StandardSkillCategory = (typeof STANDARD_SKILL_CATEGORIES)[number];
+
+/**
+ * Zod validation schema representing categorizations for developer skills and technology stacks.
+ * Supports extensible and externally defined taxonomy categories while maintaining length bounds.
+ */
+export const skillCategorySchema = z
+  .string()
+  .trim()
+  .min(1, "Skill category is required")
+  .max(50)
+  .toLowerCase();
 
 /**
  * Skill categorization type.

@@ -44,6 +44,10 @@ export async function registerSwagger(app: FastifyInstance) {
           name: "Projects",
           description: "Project management and proposal endpoints",
         },
+        {
+          name: "Tags",
+          description: "Taxonomy and skills lookup endpoints",
+        },
       ],
     },
     transform: jsonSchemaTransform,

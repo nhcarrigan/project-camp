@@ -38,20 +38,6 @@ export const projectDifficultyEnum = pgEnum("project_difficulty", [
 export const voteTypeEnum = pgEnum("vote_type", ["upvote", "downvote"]);
 
 /**
- * Categorization for developer skills and technology stacks.
- */
-export const skillCategoryEnum = pgEnum("skill_category", [
-  "frontend",
-  "backend",
-  "devops",
-  "database",
-  "mobile",
-  "ai_ml",
-  "design",
-  "other",
-]);
-
-/**
  * Functional roles assigned to project team members.
  */
 export const projectMemberRoleEnum = pgEnum("project_member_role", [
