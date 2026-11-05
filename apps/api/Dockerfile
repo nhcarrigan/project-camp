@@ -2,6 +2,9 @@
 FROM node:26-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+
+RUN npm install -g corepack@0.36.0
+
 RUN corepack enable
 
 # Stage 2: Prune monorepo for apps/api
