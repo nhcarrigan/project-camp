@@ -5,7 +5,6 @@ import {
   text,
   timestamp,
   uuid,
-  varchar,
 } from "drizzle-orm/pg-core";
 import { milestoneStatusEnum } from "../constants/enums";
 import { projects } from "./projects";
@@ -20,7 +19,7 @@ export const projectMilestones = pgTable(
     projectId: uuid("project_id")
       .notNull()
       .references(() => projects.id, { onDelete: "cascade" }),
-    title: varchar("title", { length: 200 }).notNull(),
+    title: text("title").notNull(),
     description: text("description"),
     status: milestoneStatusEnum("status").notNull().default("pending"),
     dueDate: timestamp("due_date", { withTimezone: true }),

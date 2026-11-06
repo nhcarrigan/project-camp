@@ -5,7 +5,6 @@ import {
   text,
   timestamp,
   uuid,
-  varchar,
 } from "drizzle-orm/pg-core";
 import { projectDifficultyEnum, projectStatusEnum } from "../constants/enums";
 import { users } from "./users";
@@ -17,8 +16,8 @@ export const projects = pgTable(
   "projects",
   {
     id: uuid("id").primaryKey().defaultRandom(),
-    title: varchar("title", { length: 200 }).notNull(),
-    slug: varchar("slug", { length: 100 }).notNull().unique(),
+    title: text("title").notNull(),
+    slug: text("slug").notNull().unique(),
     description: text("description").notNull(),
     status: projectStatusEnum("status").notNull().default("draft"),
     difficulty: projectDifficultyEnum("difficulty")
