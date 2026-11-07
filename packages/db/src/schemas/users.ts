@@ -1,11 +1,4 @@
-import {
-  integer,
-  pgTable,
-  timestamp,
-  uuid,
-  varchar,
-  text,
-} from "drizzle-orm/pg-core";
+import { integer, pgTable, timestamp, uuid, text } from "drizzle-orm/pg-core";
 import { userRoleEnum } from "../constants/enums";
 
 /**
@@ -13,11 +6,11 @@ import { userRoleEnum } from "../constants/enums";
  */
 export const users = pgTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
-  email: varchar("email", { length: 255 }).notNull().unique(),
-  name: varchar("name", { length: 100 }).notNull(),
+  email: text("email").notNull().unique(),
+  name: text("name").notNull(),
   role: userRoleEnum("role").notNull().default("member"),
-  bio: varchar("bio", { length: 500 }),
-  githubUsername: varchar("github_username", { length: 39 }),
+  bio: text("bio"),
+  githubUsername: text("github_username"),
   website: text("website"),
   reputationScore: integer("reputation_score").notNull().default(0),
   createdAt: timestamp("created_at", { withTimezone: true })
